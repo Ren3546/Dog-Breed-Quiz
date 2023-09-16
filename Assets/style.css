@@ -1,0 +1,17 @@
+h1 {
+    display:flex;
+    justify-content:space-around;
+    padding: 10%;
+}
+
+.button {
+    display:flex;
+    text-align:center;
+    justify-content:center;
+}
+
+#timer {
+    display:flex;
+    text-align:right;
+    justify-content:right;
+}
