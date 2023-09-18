@@ -31,7 +31,7 @@ h1 {
     justify-content: right;
     float: right;
     color: #008b8b;
-    font-size: 50px;
+    font-size: 30px;
     width: 100px;
     
 }
@@ -39,15 +39,20 @@ h1 {
 #questions {
     display: flex;
     justify-content:center;
-    margin-left: 20px;
+    margin-left: 283px;
     border:solid;
     width:500px;
 }
 
 #choices {
     display: flex;
-    justify-content: space-between;
-    width: 500px;
+    justify-content: space-evenly;
+    width: 281px;
+    height: 228px;
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-content:stretch;
+    margin-left: 395px;
     
 }
 
