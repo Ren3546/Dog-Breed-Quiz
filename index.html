@@ -4,38 +4,31 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Quiz</title>
+        <title>Dog Breed Quiz</title>
         <link rel="stylesheet" href="Assets/style.css" />
     </head>
 
     <body>
         <header>
-            <h1 id="title">Welcome to the Quiz!</h1>
+            <h1 id="title">Welcome to the Dog Breed Quiz! Each correct answer awards you 50 points. Read carefully! Every incorrect answer loses you 15 seconds!</h1>
         </header>
 
         <main class=container id="container">
+            <section id = leaderBoardHolder></section>
             <div class="button">
                 <button id="start" onclick="startGame()">Start Quiz</button>
             </div>
-            <div id="timer"></div> 
-            <div id="questions"></div>
-            <div id="choices"></div>
+            <form method="POST" id = "form"></form>
+            <section id ="imgDisplay">
+                <div id="questions"></div>
+            </section>
+            <section id ="choicesBox">
+                <div id="choices"></div>
+            </section>
+            <section id = "timerBox">
+                <div id="timer"></div>
+            </section>
         </main>
         <script src="Assets/script.js"></script>
-
-
-
-
-
-
-
-
     </body>
-
-
-
-
-
-
-
 </html>
