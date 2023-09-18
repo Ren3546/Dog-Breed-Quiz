@@ -5,10 +5,9 @@ body {
 h1 {
     display:flex;
     justify-content:space-around;
-    padding: 10%;
     font-family: Georgia;
     color:#008b8b;
-    font-size: 55px;
+    font-size: 30px;
 }
 
 .button {
@@ -28,19 +27,15 @@ h1 {
 }
 #timer {
     display: flex;
-    justify-content: right;
-    float: right;
     color: #008b8b;
-    font-size: 30px;
-    width: 100px;
+    font-size: 40px;
+    width: 353px;
     
 }
 
 #questions {
     display: flex;
     justify-content:center;
-    margin-left: 283px;
-    border:solid;
     width:500px;
 }
 
@@ -52,12 +47,29 @@ h1 {
     flex-direction: column;
     flex-wrap:wrap;
     align-content:stretch;
-    margin-left: 395px;
     
 }
 
-span {
-  border: solid;
+img {
+    max-width: 55%;
 }
 
+#form {
+    display: flex;
+    justify-content:center;
+}
 
+#imgDisplay {
+    display:flex;
+    justify-content:center;
+}
+
+#choicesBox {
+    display:flex;
+    justify-content:center;
+}
+
+#timerBox {
+    display:flex;
+    justify-content:center;
+}
