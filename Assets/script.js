@@ -42,7 +42,6 @@ function userScore() {
 
 function gameOver() {
     document.getElementById("title").innerHTML = "Game Over! Enter your name in the leaderboard!"
-    timerEl.remove();
     choicesBlock.replaceChildren('');
     questionBlock.textContent = ('');
     usernameForm();
@@ -63,6 +62,7 @@ function usernameForm (){
 
     formEl.addEventListener("click", function(event) {
         event.preventDefault();
+        timerEl.remove();
         var name = document.querySelector("#text").value;
 
         if (name === "") {
@@ -172,6 +172,7 @@ function thirdQuestion() {
     var imgBlock = document.getElementById("questions");
     imgBlock.append(dog3)
 
+
     for (var i = 0; i < questions[2].choices.length; i++) {
         const newSpan = document.createElement('button')
         newSpan.innerText = questions[2].choices[i];
@@ -252,13 +253,12 @@ function fifthQuestion() {
                     dog5.remove();
                     choicesBlock.replaceChildren('');
                     userScore();
-                    gameOver();
+                    window.timeLeft = 0;
                     
                 }else{
                     choicesBlock.replaceChildren('');
                     dog5.remove();
-                    timeDeduction();
-                    gameOver();
+                    window.timeLeft = 0;
                 }
         })
 
