@@ -7,7 +7,7 @@ var formEl = document.getElementById('form')
 var leaderBoardHolder = document.getElementById('leaderBoardHolder')
 var leaderBoard;
 
-
+//questions and answers object
 let questions = [
     {
         choices: ["Labrador", "Beagle", "Basset Hound", "Jask Russell Terrier"],
@@ -28,18 +28,23 @@ let questions = [
     }
 ]
 
+//timer variable
 var timeLeft = 100;
 
+//reduces timer by 15 seconds
 function timeDeduction() {
     window.timeLeft = timeLeft - 15;
 }
 
+//user's score
 var userSc = 0;
 
+//user's score increases by 50 points with every correct answer
 function userScore() {
     userSc = userSc + 50;
 }
 
+//once timer ends or all questions answered, replaces header text and changes to username entry
 function gameOver() {
     document.getElementById("title").innerHTML = "Game Over! Enter your name in the leaderboard!"
     choicesBlock.replaceChildren('');
@@ -47,6 +52,7 @@ function gameOver() {
     usernameForm();
 }
 
+//form for username input
 function usernameForm (){
     var form = document.createElement('input');
     form.setAttribute('type','text');
@@ -60,6 +66,7 @@ function usernameForm (){
     formEl.append(submit)
 }
 
+//once username is submitted, runs leaderboard function with inputted text.
     formEl.addEventListener("click", function(event) {
         event.preventDefault();
         timerEl.remove();
@@ -74,6 +81,7 @@ function usernameForm (){
    
 })
 
+//displays username and score
 function leaderBoard() {
         document.getElementById("title").innerHTML = "Leaderboard &#128081;";
         form.remove();
@@ -83,6 +91,7 @@ function leaderBoard() {
 
 }
 
+//changes header to the question, starts timer
 function startGame() {
     starter.remove();
     document.getElementById("title").innerHTML = "Name the dog breed"
@@ -100,11 +109,13 @@ function startGame() {
         }
     }, 1000);
 
+//image for question
     var dog1 = document.createElement("img");
     dog1.src = "./Assets/images/dog1.jpg";
     var imgBlock = document.getElementById("questions");
     imgBlock.append(dog1)
 
+//for loop to show all 4 possible choices
     for (var i = 0; i < questions[0].choices.length; i++) {
         const newSpan = document.createElement('button')
         newSpan.innerText = questions[0].choices[i];
@@ -114,13 +125,13 @@ function startGame() {
                 var answer = questions[0].answer
                 console.log(choice)
                 console.log(answer)
-
+//correct answer will increase user score and move on to next question
                 if (choice === answer) {
                     choicesBlock.replaceChildren('')
                     dog1.remove();
                     userScore();
                     secondQuestion();
-                    
+//incorrect answer will reduce time by 15 seconds then on to next question
                 }else{
                     dog1.remove();
                     timeDeduction();
