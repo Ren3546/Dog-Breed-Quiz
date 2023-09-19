@@ -4,6 +4,8 @@ var questionBlock = document.getElementById("questions")
 var choicesBlock = document.getElementById("choices")
 var container = document.getElementById("container")
 var formEl = document.getElementById('form')
+var leaderBoardHolder = document.getElementById('leaderBoardHolder')
+var leaderBoard;
 
 
 let questions = [
@@ -38,6 +40,48 @@ function userScore() {
     userSc = userSc + 50;
 }
 
+function gameOver() {
+    document.getElementById("title").innerHTML = "Game Over! Enter your name in the leaderboard!"
+    timerEl.remove();
+    choicesBlock.replaceChildren('');
+    questionBlock.textContent = ('');
+    usernameForm();
+}
+
+function usernameForm (){
+    var form = document.createElement('input');
+    form.setAttribute('type','text');
+    form.setAttribute('name','text');
+    form.setAttribute('id','text');
+    form.setAttribute('size',50);
+    form.setAttribute('placeholder','Enter your Username');
+    formEl.append(form)
+    var submit = document.createElement('button');
+    submit.innerText = "submit";
+    formEl.append(submit)
+}
+
+    formEl.addEventListener("click", function(event) {
+        event.preventDefault();
+        var name = document.querySelector("#text").value;
+
+        if (name === "") {
+            return;
+        }else{
+            localStorage.setItem("Username", name);
+            leaderBoard();
+        }
+   
+})
+
+function leaderBoard() {
+        document.getElementById("title").innerHTML = "Leaderboard &#128081;";
+        form.remove();
+        var leader = document.createElement('p');
+        leader.innerText = localStorage.getItem("Username") + " " + userSc + "pts";
+        leaderBoardHolder.append(leader);
+
+}
 
 function startGame() {
     starter.remove();
